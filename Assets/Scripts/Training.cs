@@ -8,7 +8,7 @@ public class Training
     public Training()
     {
         _costMultiplier = 1.2;
-        _cost = 5.00;
+        _cost = 12.00;
         _level = 1;
 }
 
