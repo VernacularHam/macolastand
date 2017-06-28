@@ -11,11 +11,13 @@ public class CycleManager : MonoBehaviour {
     private Marketing marketing;
     private Training training;
     private int trainingAmount;
+    private System.Random random;
 
     private int turnsFromPreviousRelease;
 
     // Use this for initialization
     void Awake() {
+        random = new System.Random();
         model = new Model();
         marketing = model.Marketing;
         training = model.Training;
@@ -24,6 +26,11 @@ public class CycleManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+    }
+
+    public void HireEmployee()
+    {
+        model.addEmployee(new Staffer(random.Next(0, 17) , random.Next(1, 10)));
     }
 
     public void BuyTraining() {
