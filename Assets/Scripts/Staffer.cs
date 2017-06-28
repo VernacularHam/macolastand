@@ -3,9 +3,19 @@ using System.Collections.Generic;
 using System;
 
 public class Staffer {
-    public Staffer()
+    public Staffer(int seed = -1)
     {
-        Random random = new Random();
+        Random random;
+
+        if (seed != -1)
+        {
+            random = new Random(seed);
+        }
+        else
+        {
+            random = new Random();
+        }
+
         int randomName = random.Next(0, 17);
         _level = random.Next(1, 10);
         _name = names[randomName];
