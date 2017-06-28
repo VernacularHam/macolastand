@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class Model {
 
-    public Model ()
+    public Model (int budget = 1000)
     {
-        _budget = 100;
+        _budget = budget;
         _release = 0;
         _prices = new List<int>();
     }
