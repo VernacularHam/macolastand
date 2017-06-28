@@ -83,7 +83,8 @@ public class CycleManager : MonoBehaviour {
     }
 
     private void LoseGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        var loseScreen = transform.Find("GameOverPanel");
+        loseScreen.gameObject.SetActive(true);
     }
 
     private void Initialize() {

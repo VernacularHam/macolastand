@@ -47,7 +47,7 @@ public class Menu : MonoBehaviour {
         ReleaseNumber.text = "Release " + model.Release.ToString();
         SprintNumber.text = "Sprint " + model.Sprint.ToString();
         WorkRemaining.text = "Work Remaining: " + model.WorkRemaining.ToString();
-        MoneyRemaining.text = "Funds Remaining: $" + model.Budget.ToString();
+        MoneyRemaining.text = "Funds: $" + model.Budget.ToString();
         
         foreach (Transform child in EmployeeListContainer.transform)
         {
