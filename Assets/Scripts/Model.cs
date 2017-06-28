@@ -18,7 +18,7 @@ public class Model {
         //generate starter employees
         for (int i = 0; i < 3; i++)
         {
-            addEmployee(new Staffer());
+            addEmployee(new Staffer(i);
         }
         _prices.Add(10000);
     }
@@ -73,6 +73,11 @@ public class Model {
         {
             return _employees;
         }
+    }
+
+    public void RemoveEmployee(int index)
+    {
+        _employees.RemoveAt(index);
     }
 
     private Marketing _marketing;
