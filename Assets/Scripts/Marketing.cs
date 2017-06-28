@@ -7,12 +7,12 @@ public class Marketing
 {
     public Marketing()
     {
-        _costMultiplier = 10;
+        _costMultiplier = 1.2;
         _cost = 100;
         _level = 1;
     }
 
-    private int _costMultiplier;
+    private double _costMultiplier;
 
     /// <summary>
     /// Cost in units of money.
@@ -32,7 +32,7 @@ public class Marketing
     public void Update()
     {
         _level++;
-        _cost += _cost * _costMultiplier;
+        _cost += (int)(_cost * _costMultiplier);
     }
  
 }

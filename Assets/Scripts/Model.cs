@@ -21,7 +21,7 @@ public class Model {
         {
             addEmployee(new Staffer(random.Next(0, 17), random.Next(1, 10)));
         }
-        _prices.Add(10000);
+        _prices.Add(50);
     }
 
     private int _sprint;
@@ -135,7 +135,7 @@ public class Model {
 
     public void BuyTraining() {
         Training.Update();
-        Budget -= Training.Cost;        
+        WorkRemaining += (int) Training.Cost;
     }
 
     public void ApplyTraining(int trainingAmount) 
@@ -147,7 +147,7 @@ public class Model {
 
     public void BuyMarketing() {
         Marketing.Update();
-        Budget -= Training.Cost;
+        Budget -= Marketing.Cost;
     }
 
 }

@@ -34,7 +34,7 @@ public class Staffer {
     {
         get
         {
-            return _level;
+            return _level * 2;
         }
 
         set 
