@@ -1357,7 +1357,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0% of Work Complete
+  m_Text: 'Work Remaining:'
 --- !u!222 &728979609
 CanvasRenderer:
   m_ObjectHideFlags: 0
