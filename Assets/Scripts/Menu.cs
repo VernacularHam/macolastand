@@ -31,6 +31,7 @@ public class Menu : MonoBehaviour {
         SprintNumber = transform.Find("Sprint Number").GetComponent<Text>();
         WorkRemaining = transform.Find("Work Remaining").GetComponent<Text>();
         MoneyRemaining = transform.Find("Funds").GetComponent<Text>();
+        PayrollCost = transform.Find("Setup/Employees/Payroll cost").GetComponent<Text>();
         //MoneySpent = transform.Find("Results/Money spent").GetComponent<Text>();
         //MoneyEarned = transform.Find("Results/Money earned").GetComponent<Text>();
 
@@ -47,12 +48,13 @@ public class Menu : MonoBehaviour {
         SprintNumber.text = "Sprint " + model.Sprint.ToString();
         WorkRemaining.text = "WorkRemaining: " + model.WorkRemaining.ToString();
         MoneyRemaining.text = "$ " + model.Budget.ToString();
-
+        
         foreach (Transform child in EmployeeListContainer.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
 
+        var totalCost = 0;
         for (int i = 0; i < model.Employees.Count; i++)
         {
             GameObject newEmployee = Instantiate(EmployeePrefabRef) as GameObject;
@@ -62,7 +64,10 @@ public class Menu : MonoBehaviour {
 
             newEmployee.transform.parent = EmployeeListContainer.transform;
             newEmployee.GetComponent<EmployeeListItem>().index = i;
+
+            totalCost += model.Employees[i].Cost;
         }
+        PayrollCost.text = "Payroll cost/sprint: $" + totalCost;
         
     }
 
