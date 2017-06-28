@@ -7,7 +7,7 @@ public class Model {
     public Model (int budget = 1000)
     {
         _budget = budget;
-        _release = 0;
+        _release = 1;
         _prices = new List<int>();
         _marketing = new Marketing();
         _training = new Training();
