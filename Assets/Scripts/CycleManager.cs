@@ -51,6 +51,7 @@ public class CycleManager : MonoBehaviour {
 
         if (model.Budget <= 0) {
             LoseGame();
+            Debug.Log("You Lost");
         }
     }
 

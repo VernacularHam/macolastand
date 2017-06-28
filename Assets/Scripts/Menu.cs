@@ -26,6 +26,8 @@ public class Menu : MonoBehaviour {
         MoneyRemaining = transform.Find("Funds").GetComponent<Text>();
 
         model = GetComponent<CycleManager>().model;
+
+        UpdateData();
     }
 
     // Update is called once per frame
@@ -36,7 +38,6 @@ public class Menu : MonoBehaviour {
         SprintNumber.text = "Sprint " + model.Sprint.ToString();
         WorkRemaining.text = "WorkRemaining: " + model.WorkRemaining.ToString();
         MoneyRemaining.text = "$ " + model.Budget.ToString();
-
     }
 
 }

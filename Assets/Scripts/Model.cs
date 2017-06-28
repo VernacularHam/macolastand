@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 public class Model {
 
-    public Model (int budget = 1000)
+    public Model (int budget = 10000)
     {
         _budget = budget;
-        _release = 1;
         _prices = new List<int>();
         _marketing = new Marketing();
         _training = new Training();
         _employees = new List<Staffer>();
         _prices = new List<int>();
+
+        WorkRemaining = 0;
 
         //generate starter employees
         for (int i = 0; i < 3; i++)
@@ -96,7 +97,7 @@ public class Model {
                 Release++;
                 var randMod = (new Random()).Next(1,4);
 
-                _workRemaining = 500 * Release * randMod;
+                _workRemaining = 50 * Release * randMod;
             } 
             else 
             {
