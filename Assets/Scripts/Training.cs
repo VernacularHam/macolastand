@@ -13,7 +13,6 @@ public class Training
 }
 
     private double _costMultiplier;
-    private List<string> _lockedResearch;
 
     /// <summary>
     /// Cost in units of work.
@@ -22,20 +21,12 @@ public class Training
     public double Cost
     {
         get { return _cost; }
-        //set
-        //{
-        //    _cost = value;
-        //}
     }
 
     private int _level;
     public int Level
     {
         get { return _level; }
-        //set
-        //{
-        //    _level = value;
-        //}
     }
 
     public void Update()
