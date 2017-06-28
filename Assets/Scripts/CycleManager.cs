@@ -10,7 +10,7 @@ public class CycleManager : MonoBehaviour {
 
     private Marketing marketing;
     private Training training;
-    private bool applyTraining;
+    private int trainingAmount;
 
     private int turnsFromPreviousRelease;
 
@@ -28,7 +28,7 @@ public class CycleManager : MonoBehaviour {
 
     public void BuyTraining() {
         model.BuyTraining();
-        applyTraining = true;
+        trainingAmount++;
     }
 
     public void BuyMarketing() {
@@ -43,9 +43,10 @@ public class CycleManager : MonoBehaviour {
         if (isReleased) {
             model.Budget += CalcRevenue();
             
-            if (applyTraining) {
-                model.BuyTraining();
-                applyTraining = false;
+            if (trainingAmount > 0) {
+                model.ApplyTraining(trainingAmount);
+                trainingAmount = 0;
+                turnsFromPreviousRelease = 0;
             } 
         }
 
@@ -53,6 +54,8 @@ public class CycleManager : MonoBehaviour {
             LoseGame();
             Debug.Log("You Lost");
         }
+
+        turnsFromPreviousRelease++;
     }
 
     public void FireEmployee(int employee)

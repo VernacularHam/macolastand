@@ -135,10 +135,13 @@ public class Model {
 
     public void BuyTraining() {
         Training.Update();
-        Budget -= Training.Cost;
+        Budget -= Training.Cost;        
+    }
 
+    public void ApplyTraining(int trainingAmount) 
+    {
         foreach (var employee in Employees) {
-            employee.Output = (int)(1.10 * employee.Output);
+            employee.Output = (int)(5 * trainingAmount + employee.Output);
         }
     }
 
