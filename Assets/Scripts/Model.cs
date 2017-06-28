@@ -8,6 +8,8 @@ public class Model {
         _budget = budget;
         _release = 0;
         _prices = new List<int>();
+        _marketing = new Marketing();
+        _training = new Training();
     }
 
     private double _budget;
@@ -50,6 +52,18 @@ public class Model {
         {
             return _employees;
         }
+    }
+
+    private Marketing _marketing;
+    public Marketing Marketing
+    {
+        get { return _marketing; }
+    }
+
+    private Training _training;
+    public Training Training
+    {
+        get { return _training; }
     }
 
     public void addEmployee(Staffer noob)
