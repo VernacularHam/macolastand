@@ -1667,6 +1667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35720a416846f1b4783dd137a89c123b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EmployeePrefabRef: {fileID: 1582144185050222, guid: 46a655b3f7669ae4482738076848079e,
+    type: 2}
+  EmployeeListContainer: {fileID: 396668160}
 --- !u!114 &860386825
 MonoBehaviour:
   m_ObjectHideFlags: 0

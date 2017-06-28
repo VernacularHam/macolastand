@@ -14,7 +14,12 @@ public class Menu : MonoBehaviour {
     private Text PayrollCost;
     
     private List<GameObject> EmployeeList;
-    private Model model; 
+    
+    private GameObject ListItemPrefab;
+    private Model model;
+
+    public GameObject EmployeePrefabRef;
+    public GridLayoutGroup EmployeeListContainer;
 
     // Use this for initialization
     void Start () {
@@ -38,6 +43,16 @@ public class Menu : MonoBehaviour {
         SprintNumber.text = "Sprint " + model.Sprint.ToString();
         WorkRemaining.text = "WorkRemaining: " + model.WorkRemaining.ToString();
         MoneyRemaining.text = "$ " + model.Budget.ToString();
+        foreach (Staffer employee in model.Employees)
+        {
+            GameObject newEmployee = Instantiate(EmployeePrefabRef) as GameObject;
+            newEmployee.transform.GetChild(0).GetComponent<Text>().text = employee.Name;
+            newEmployee.transform.GetChild(1).GetComponent<Text>().text = employee.Cost.ToString();
+            newEmployee.transform.GetChild(2).GetComponent<Text>().text = employee.Output.ToString();
+
+            newEmployee.transform.parent = EmployeeListContainer.transform;
+        }
+        
     }
 
 }
