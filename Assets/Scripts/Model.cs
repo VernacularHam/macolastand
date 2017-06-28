@@ -135,7 +135,7 @@ public class Model {
 
     public void BuyTraining() {
         Training.Update();
-        Budget -= Training.Cost;
+        WorkRemaining += (int) Training.Cost;
 
         foreach (var employee in Employees) {
             employee.Output = (int)(1.10 * employee.Output);
@@ -144,7 +144,7 @@ public class Model {
 
     public void BuyMarketing() {
         Marketing.Update();
-        Budget -= Training.Cost;
+        Budget -= Marketing.Cost;
     }
 
 }
