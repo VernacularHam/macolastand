@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CycleManager : MonoBehaviour {
 
@@ -57,12 +58,11 @@ public class CycleManager : MonoBehaviour {
             } 
         }
 
+        turnsFromPreviousRelease++;
+
         if (model.Budget <= 0) {
             LoseGame();
-            Debug.Log("You Lost");
         }
-
-        turnsFromPreviousRelease++;
     }
 
     public void FireEmployee(int employee)
@@ -86,6 +86,12 @@ public class CycleManager : MonoBehaviour {
     }
 
     private void LoseGame() {
-        return;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void Initialize() {
+        model = new Model();
+        marketing = model.Marketing;
+        training = model.Training;
     }
 }
