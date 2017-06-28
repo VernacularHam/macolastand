@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CycleManager : MonoBehaviour {
 
@@ -10,15 +11,13 @@ public class CycleManager : MonoBehaviour {
 
     private Marketing marketing;
     private Training training;
-    private bool applyTraining;
+    private int trainingAmount;
 
     private int turnsFromPreviousRelease;
 
     // Use this for initialization
     void Awake() {
-        model = new Model();
-        marketing = model.Marketing;
-        training = model.Training;
+        Initialize();
     }
 
     // Update is called once per frame
@@ -28,7 +27,7 @@ public class CycleManager : MonoBehaviour {
 
     public void BuyTraining() {
         model.BuyTraining();
-        applyTraining = true;
+        trainingAmount++;
     }
 
     public void BuyMarketing() {
@@ -43,15 +42,17 @@ public class CycleManager : MonoBehaviour {
         if (isReleased) {
             model.Budget += CalcRevenue();
             
-            if (applyTraining) {
-                model.BuyTraining();
-                applyTraining = false;
+            if (trainingAmount > 0) {
+                model.ApplyTraining(trainingAmount);
+                trainingAmount = 0;
+                turnsFromPreviousRelease = 0;
             } 
         }
 
+        turnsFromPreviousRelease++;
+
         if (model.Budget <= 0) {
             LoseGame();
-            Debug.Log("You Lost");
         }
     }
 
@@ -63,7 +64,7 @@ public class CycleManager : MonoBehaviour {
     }
 
     private int CalcNumberOfSales() {
-        var baseSales = model.Release * 100;
+        var baseSales = model.Release * 50;
         var randomMod = 1.5 * Random.value;
 
         return (int)(baseSales * randomMod);
@@ -76,6 +77,12 @@ public class CycleManager : MonoBehaviour {
     }
 
     private void LoseGame() {
-        return;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void Initialize() {
+        model = new Model();
+        marketing = model.Marketing;
+        training = model.Training;
     }
 }
