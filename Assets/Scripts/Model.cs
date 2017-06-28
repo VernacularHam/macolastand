@@ -13,6 +13,16 @@ public class Model {
         _training = new Training();
     }
 
+    private int _sprint;
+    public int Sprint
+    {
+        get { return _sprint; }
+        set
+        {
+            _sprint = value;
+        }
+    }
+
     private double _budget;
     public double Budget
     {

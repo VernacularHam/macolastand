@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour {
     private Text PayrollCost;
     
     private List<GameObject> EmployeeList;
+    private Model model; 
 
     // Use this for initialization
     void Start () {
@@ -23,12 +24,19 @@ public class Menu : MonoBehaviour {
         SprintNumber = transform.Find("Sprint Number").GetComponent<Text>();
         WorkRemaining = transform.Find("Work Remaining ").GetComponent<Text>();
         MoneyRemaining = transform.Find("Funds").GetComponent<Text>();
-        PayrollCost = transform.Find("Setup/Payroll Cost").GetComponent<Text>();
 
+        model = GetComponent<CycleManager>().model;
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void UpdateData () {
+        TrainingLevel.text = "Training Level: " + model.Training.Level.ToString();
+        MarketingLevel.text = "Marketing Level: " + model.Marketing.Level.ToString();
+        ReleaseNumber.text = "Release " + model.Release.ToString();
+        SprintNumber.text = "Sprint " + model.Sprint.ToString();
+        WorkRemaining.text = "WorkRemaining: " + model.WorkRemaining.ToString();
+        MoneyRemaining.text = "$ " + model.Budget.ToString();
+
+    }
+
 }
