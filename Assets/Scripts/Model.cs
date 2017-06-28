@@ -70,4 +70,18 @@ public class Model {
     {
         _employees.Add(noob);
     }
+
+    public void PayEmployees() {
+        foreach (var employee in Employees) {
+            Budget -= employee.Cost;
+        }
+    }
+
+    public void BuyTraining() {
+        
+    }
+
+    public void BuyMarketing() {
+
+    }
 }
