@@ -12,12 +12,14 @@ public class Model {
         _marketing = new Marketing();
         _training = new Training();
         _employees = new List<Staffer>();
+        _prices = new List<int>();
 
         //generate starter employees
         for (int i = 0; i < 3; i++)
         {
             addEmployee(new Staffer());
-        }  
+        }
+        _prices.Add(10000);
     }
 
     private int _sprint;
