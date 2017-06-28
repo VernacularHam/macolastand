@@ -120,6 +120,10 @@ public class Model {
     public void BuyTraining() {
         Training.Update();
         Budget -= Training.Cost;
+
+        foreach (var employee in Employees) {
+            employee.Output = (int)(1.10 * employee.Output);
+        }
     }
 
     public void BuyMarketing() {

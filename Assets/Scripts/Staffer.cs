@@ -38,5 +38,10 @@ public class Staffer {
         {
             return _level;
         }
+
+        set 
+        {
+            _level = value;
+        }
     }
 }

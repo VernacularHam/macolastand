@@ -10,6 +10,7 @@ public class CycleManager : MonoBehaviour {
 
     private Marketing marketing;
     private Training training;
+    private bool applyTraining;
 
     private int turnsFromPreviousRelease;
 
@@ -27,6 +28,7 @@ public class CycleManager : MonoBehaviour {
 
     public void BuyTraining() {
         model.BuyTraining();
+        applyTraining = true;
     }
 
     public void BuyMarketing() {
@@ -39,7 +41,12 @@ public class CycleManager : MonoBehaviour {
         var isReleased = model.PerformWork();       
 
         if (isReleased) {
-            model.Budget += CalcRevenue(); 
+            model.Budget += CalcRevenue();
+            
+            if (applyTraining) {
+                model.BuyTraining();
+                applyTraining = false;
+            } 
         }
 
         if (model.Budget <= 0) {
