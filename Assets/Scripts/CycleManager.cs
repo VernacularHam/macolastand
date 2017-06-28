@@ -14,7 +14,7 @@ public class CycleManager : MonoBehaviour {
     private int turnsFromPreviousRelease;
 
     // Use this for initialization
-    void Start() {
+    void Awake() {
         model = new Model();
         marketing = model.Marketing;
         training = model.Training;

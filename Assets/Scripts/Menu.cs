@@ -19,17 +19,17 @@ public class Menu : MonoBehaviour {
     // Use this for initialization
     void Start () {
         TrainingLevel = transform.Find("Training Level").GetComponent<Text>();
-        MarketingLevel = transform.Find("Marketing Level").GetComponent<Text>();
+        MarketingLevel = transform.Find("Marketing Level ").GetComponent<Text>();
         ReleaseNumber = transform.Find("Release Number").GetComponent<Text>();
         SprintNumber = transform.Find("Sprint Number").GetComponent<Text>();
-        WorkRemaining = transform.Find("Work Remaining ").GetComponent<Text>();
+        WorkRemaining = transform.Find("Work Remaining").GetComponent<Text>();
         MoneyRemaining = transform.Find("Funds").GetComponent<Text>();
 
         model = GetComponent<CycleManager>().model;
     }
 
     // Update is called once per frame
-    void UpdateData () {
+    public void UpdateData () {
         TrainingLevel.text = "Training Level: " + model.Training.Level.ToString();
         MarketingLevel.text = "Marketing Level: " + model.Marketing.Level.ToString();
         ReleaseNumber.text = "Release " + model.Release.ToString();
