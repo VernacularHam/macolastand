@@ -6,4 +6,6 @@ public class Staffer {
     {
 
     }
+
+    private string[] names = ["Aniket", "Joe", "Mike", "Claudia", "Mathew", "Ben", "Stephanie", "Pratap", "Derek", "Connor", "Greta", "John DM", "Debra", "Scott", "Rex"];
 }
