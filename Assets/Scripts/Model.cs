@@ -18,7 +18,7 @@ public class Model {
         //generate starter employees
         for (int i = 0; i < 3; i++)
         {
-            addEmployee(new Staffer(i);
+            addEmployee(new Staffer(i));
         }
         _prices.Add(10000);
     }

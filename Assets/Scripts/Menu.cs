@@ -43,14 +43,21 @@ public class Menu : MonoBehaviour {
         SprintNumber.text = "Sprint " + model.Sprint.ToString();
         WorkRemaining.text = "WorkRemaining: " + model.WorkRemaining.ToString();
         MoneyRemaining.text = "$ " + model.Budget.ToString();
-        foreach (Staffer employee in model.Employees)
+
+        foreach (Transform child in EmployeeListContainer.transform)
+        {
+            GameObject.Destroy(child);
+        }
+
+        for (int i = 0; i < model.Employees.Count; i++)
         {
             GameObject newEmployee = Instantiate(EmployeePrefabRef) as GameObject;
-            newEmployee.transform.GetChild(0).GetComponent<Text>().text = employee.Name;
-            newEmployee.transform.GetChild(1).GetComponent<Text>().text = employee.Cost.ToString();
-            newEmployee.transform.GetChild(2).GetComponent<Text>().text = employee.Output.ToString();
+            newEmployee.transform.GetChild(0).GetComponent<Text>().text = model.Employees[i].Name;
+            newEmployee.transform.GetChild(1).GetComponent<Text>().text = model.Employees[i].Cost.ToString();
+            newEmployee.transform.GetChild(2).GetComponent<Text>().text = model.Employees[i].Output.ToString();
 
             newEmployee.transform.parent = EmployeeListContainer.transform;
+            newEmployee.GetComponent<EmployeeListItem>().index = i;
         }
         
     }

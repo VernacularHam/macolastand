@@ -55,6 +55,13 @@ public class CycleManager : MonoBehaviour {
         }
     }
 
+    public void FireEmployee(EmployeeListItem employee)
+    {
+        Debug.Log("attempting to fire employee");
+        Debug.Log("firing: " + employee.index);
+        model.RemoveEmployee(employee.index);
+    }
+
     private int CalcNumberOfSales() {
         var baseSales = model.Release * 100;
         var randomMod = 1.5 * Random.value;
