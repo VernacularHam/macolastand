@@ -11,21 +11,6 @@ public class Model {
         _prices = new List<int>();
         _marketing = new Marketing();
         _training = new Training();
-        _workRemaining = 0;
-    }
-
-    private double _workRemaining;
-    public double WorkRemaining
-    {
-        get
-        {
-            return _workRemaining;
-        }
-    }
-
-    public void deductWorkRemaining(double deductAmt)
-    {
-        _workRemaining -= deductAmt;
     }
 
     private double _budget;
