@@ -18,10 +18,7 @@ public class CycleManager : MonoBehaviour {
 
     // Use this for initialization
     void Awake() {
-        random = new System.Random();
-        model = new Model();
-        marketing = model.Marketing;
-        training = model.Training;
+        Initialize();
     }
 
     // Update is called once per frame
@@ -90,6 +87,7 @@ public class CycleManager : MonoBehaviour {
     }
 
     private void Initialize() {
+        random = new System.Random();
         model = new Model();
         marketing = model.Marketing;
         training = model.Training;
