@@ -55,11 +55,11 @@ public class CycleManager : MonoBehaviour {
         }
     }
 
-    public void FireEmployee(EmployeeListItem employee)
+    public void FireEmployee(int employee)
     {
         Debug.Log("attempting to fire employee");
-        Debug.Log("firing: " + employee.index);
-        model.RemoveEmployee(employee.index);
+        Debug.Log("firing: " + employee);
+        model.RemoveEmployee(employee);
     }
 
     private int CalcNumberOfSales() {

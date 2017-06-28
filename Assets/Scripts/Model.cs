@@ -6,6 +6,7 @@ public class Model {
 
     public Model (int budget = 10000)
     {
+        Random random = new Random();
         _budget = budget;
         _prices = new List<int>();
         _marketing = new Marketing();
@@ -18,7 +19,7 @@ public class Model {
         //generate starter employees
         for (int i = 0; i < 3; i++)
         {
-            addEmployee(new Staffer(i));
+            addEmployee(new Staffer(random.Next(0, 17), random.Next(1, 10)));
         }
         _prices.Add(10000);
     }

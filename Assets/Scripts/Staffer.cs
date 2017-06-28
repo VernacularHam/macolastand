@@ -3,22 +3,10 @@ using System.Collections.Generic;
 using System;
 
 public class Staffer {
-    public Staffer(int seed = -1)
+    public Staffer(int index, int level)
     {
-        Random random;
-
-        if (seed != -1)
-        {
-            random = new Random(seed);
-        }
-        else
-        {
-            random = new Random();
-        }
-
-        int randomName = random.Next(0, 17);
-        _level = random.Next(1, 10);
-        _name = names[randomName];
+        _level = level;
+        _name = names[index];
     }
 
     private string[] names = { "Aniket", "Joe", "Mike", "Claudia", "Mathew", "Ben", "Stephanie", "Pratap", "Derek", "Connor", "Greta", "John DM", "Debra", "Scott", "Rex", "Kathy", "Mitch", "Rogelio" };

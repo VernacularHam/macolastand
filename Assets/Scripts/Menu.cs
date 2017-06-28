@@ -50,7 +50,7 @@ public class Menu : MonoBehaviour {
 
         foreach (Transform child in EmployeeListContainer.transform)
         {
-            GameObject.Destroy(child);
+            GameObject.Destroy(child.gameObject);
         }
 
         for (int i = 0; i < model.Employees.Count; i++)
