@@ -12,6 +12,8 @@ public class Menu : MonoBehaviour {
     private Text WorkRemaining;
     private Text MoneyRemaining;
     private Text PayrollCost;
+    private Text MoneySpent;
+    private Text MoneyEarned;
     
     private List<GameObject> EmployeeList;
     
@@ -29,6 +31,8 @@ public class Menu : MonoBehaviour {
         SprintNumber = transform.Find("Sprint Number").GetComponent<Text>();
         WorkRemaining = transform.Find("Work Remaining").GetComponent<Text>();
         MoneyRemaining = transform.Find("Funds").GetComponent<Text>();
+        //MoneySpent = transform.Find("Results/Money spent").GetComponent<Text>();
+        //MoneyEarned = transform.Find("Results/Money earned").GetComponent<Text>();
 
         model = GetComponent<CycleManager>().model;
 
