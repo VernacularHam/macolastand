@@ -12,6 +12,8 @@ public class Menu : MonoBehaviour {
     private Text WorkRemaining;
     private Text MoneyRemaining;
     private Text PayrollCost;
+    private Text MoneySpent;
+    private Text MoneyEarned;
     
     private List<GameObject> EmployeeList;
     
@@ -29,6 +31,8 @@ public class Menu : MonoBehaviour {
         SprintNumber = transform.Find("Sprint Number").GetComponent<Text>();
         WorkRemaining = transform.Find("Work Remaining").GetComponent<Text>();
         MoneyRemaining = transform.Find("Funds").GetComponent<Text>();
+        //MoneySpent = transform.Find("Results/Money spent").GetComponent<Text>();
+        //MoneyEarned = transform.Find("Results/Money earned").GetComponent<Text>();
 
         model = GetComponent<CycleManager>().model;
 
@@ -43,6 +47,7 @@ public class Menu : MonoBehaviour {
         SprintNumber.text = "Sprint " + model.Sprint.ToString();
         WorkRemaining.text = "WorkRemaining: " + model.WorkRemaining.ToString();
         MoneyRemaining.text = "$ " + model.Budget.ToString();
+        //MoneySpent.text = "Money Spent: " + model;
         foreach (Staffer employee in model.Employees)
         {
             GameObject newEmployee = Instantiate(EmployeePrefabRef) as GameObject;
