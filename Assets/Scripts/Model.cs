@@ -11,6 +11,7 @@ public class Model {
         _prices = new List<int>();
         _marketing = new Marketing();
         _training = new Training();
+        _employees = new List<Staffer>();
 
         //generate starter employees
         for (int i = 0; i < 3; i++)
