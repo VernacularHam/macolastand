@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 public class Model {
@@ -81,6 +82,25 @@ public class Model {
         get { return _training; }
     }
 
+    private int _workRemaining;
+    public int WorkRemaining 
+    {
+        get { return _workRemaining; }
+        set 
+        {
+            if (value <= 0) {
+                Release++;
+                var randMod = (new Random()).Next(1,4);
+
+                _workRemaining = 500 * Release * randMod;
+            } 
+            else 
+            {
+                _workRemaining = value;
+            }                
+        }
+    }
+
     public void addEmployee(Staffer noob)
     {
         _employees.Add(noob);
@@ -92,11 +112,24 @@ public class Model {
         }
     }
 
+    public bool PerformWork() {
+        int previousRelease = Release;
+
+        foreach (var employee in Employees) {
+            WorkRemaining -= employee.Output;
+        }
+
+        return previousRelease != Release;
+    }
+
     public void BuyTraining() {
-        
+        Training.Update();
+        Budget -= Training.Cost;
     }
 
     public void BuyMarketing() {
-
+        Marketing.Update();
+        Budget -= Training.Cost;
     }
+
 }

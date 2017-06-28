@@ -6,7 +6,8 @@ public class CycleManager : MonoBehaviour {
 
     public int TurnProfit;
 
-    private Model model;
+    public Model model;
+
     private Marketing marketing;
     private Training training;
 
@@ -21,21 +22,29 @@ public class CycleManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        NextTurn();
+
     }
 
-    private void NextTurn() {
-        if (model.Budget <= 0) {
-            LoseGame();
-        }
+    public void BuyTraining() {
+        model.BuyTraining();
+    }
 
-        if(IsRelease()) {
+    public void BuyMarketing() {
+        model.BuyMarketing();
+    }
+
+    public void NextTurn() {
+        model.PayEmployees();
+
+        var isReleased = model.PerformWork();       
+
+        if (isReleased) {
             model.Budget += CalcRevenue(); 
         }
 
-        model.PayEmployees();
-
-
+        if (model.Budget <= 0) {
+            LoseGame();
+        }
     }
 
     private int CalcNumberOfSales() {
@@ -49,10 +58,6 @@ public class CycleManager : MonoBehaviour {
         var marketingModifier = marketing.Level;
 
         return (int)(model.CurrentPrice * CalcNumberOfSales() * marketingModifier);
-    }
-
-    private bool IsRelease() {
-        return false;
     }
 
     private void LoseGame() {
