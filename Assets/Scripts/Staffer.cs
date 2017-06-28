@@ -7,6 +7,7 @@ public class Staffer {
     {
         _level = level;
         _name = names[index];
+        _output = level * 2;
     }
 
     private string[] names = { "Aniket", "Joe", "Mike", "Claudia", "Mathew", "Ben", "Stephanie", "Pratap", "Derek", "Connor", "Greta", "John DM", "Debra", "Scott", "Rex", "Kathy", "Mitch", "Rogelio" };
@@ -30,16 +31,17 @@ public class Staffer {
         }
     }
 
+    private int _output;
     public int Output
     {
         get
         {
-            return _level * 2;
+            return _output;
         }
 
         set 
         {
-            _level = value;
+            _output = value;
         }
     }
 }
