@@ -7,40 +7,32 @@ public class Marketing
 {
     public Marketing()
     {
-        _costMultiplier = 1.2;
-        _cost = 100.00;
+        _costMultiplier = 10;
+        _cost = 100;
         _level = 1;
     }
 
-    private double _costMultiplier;
+    private int _costMultiplier;
 
     /// <summary>
     /// Cost in units of money.
     /// </summary>
-    private double _cost;
-    public double Cost
+    private int _cost;
+    public int Cost
     {
         get { return _cost; }
-        //set
-        //{
-        //    _cost = value;
-        //}
     }
 
     private int _level;
     public int Level
     {
         get { return _level; }
-        //set
-        //{
-        //    _level = value;
-        //}
     }
 
     public void Update()
     {
         _level++;
-        _cost *= _costMultiplier;
+        _cost += _cost * _costMultiplier;
     }
  
 }
