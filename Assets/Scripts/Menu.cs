@@ -46,8 +46,8 @@ public class Menu : MonoBehaviour {
         MarketingLevel.text = "Marketing Level: " + model.Marketing.Level.ToString();
         ReleaseNumber.text = "Release " + model.Release.ToString();
         SprintNumber.text = "Sprint " + model.Sprint.ToString();
-        WorkRemaining.text = "WorkRemaining: " + model.WorkRemaining.ToString();
-        MoneyRemaining.text = "$ " + model.Budget.ToString();
+        WorkRemaining.text = "Work Remaining: " + model.WorkRemaining.ToString();
+        MoneyRemaining.text = "Funds Remaining: $" + model.Budget.ToString();
         
         foreach (Transform child in EmployeeListContainer.transform)
         {
