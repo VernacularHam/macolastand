@@ -63,7 +63,7 @@ public class CycleManager : MonoBehaviour {
     }
 
     private int CalcNumberOfSales() {
-        var baseSales = model.Release * 100;
+        var baseSales = model.Release * 50;
         var randomMod = 1.5 * Random.value;
 
         return (int)(baseSales * randomMod);

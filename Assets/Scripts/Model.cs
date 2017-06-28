@@ -21,7 +21,7 @@ public class Model {
         {
             addEmployee(new Staffer(random.Next(0, 17), random.Next(1, 10)));
         }
-        _prices.Add(10000);
+        _prices.Add(50);
     }
 
     private int _sprint;
